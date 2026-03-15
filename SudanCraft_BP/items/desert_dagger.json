@@ -1,0 +1,53 @@
+{
+    "format_version": "1.20.0",
+    "minecraft:item": {
+        "description": {
+            "identifier": "sudancraft:desert_dagger",
+            "category": "equipment"
+        },
+        "components": {
+            "minecraft:max_stack_size": 1,
+            "minecraft:hand_equipped": true,
+            "minecraft:damage": 6,
+            "minecraft:enchantable": {
+                "value": 20,
+                "slot": "sword"
+            },
+            "minecraft:durability": {
+                "max_durability": 300
+            },
+            "minecraft:icon": {
+                "texture": "desert_dagger"
+            },
+            "minecraft:creative_category": {
+                "parent": "itemGroup.name.sword"
+            },
+            "minecraft:hover_text_color": "gold",
+            "minecraft:display_name": {
+                "value": "§6خنجر الصحراء§r"
+            },
+            "minecraft:on_use": {
+                "on_use": {
+                    "event": "sudancraft:sand_storm",
+                    "target": "self"
+                }
+            }
+        },
+        "events": {
+            "sudancraft:sand_storm": {
+                "run_command": {
+                    "command": [
+                        "effect @s speed 10 2 true",
+                        "effect @s invisibility 3 0 true",
+                        "particle minecraft:falling_dust_sand ~ ~ ~",
+                        "playsound weather.rain.above @a ~ ~ ~ 0.5"
+                    ]
+                },
+                "damage": {
+                    "type": "magic",
+                    "amount": 1
+                }
+            }
+        }
+    }
+}
