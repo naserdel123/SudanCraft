@@ -1,0 +1,72 @@
+{
+    "format_version": "1.20.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "sudancraft:desert_scorpion",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "components": {
+            "minecraft:type_family": {
+                "family": ["monster", "arthropod", "desert", "scorpion"]
+            },
+            "minecraft:collision_box": {
+                "width": 0.8,
+                "height": 0.5
+            },
+            "minecraft:health": {
+                "value": 12,
+                "max": 12
+            },
+            "minecraft:attack": {
+                "damage": 4,
+                "effect_name": "poison",
+                "effect_duration": 10,
+                "effect_amplifier": 1
+            },
+            "minecraft:movement": {
+                "value": 0.3
+            },
+            "minecraft:navigation.walk": {
+                "can_path_over_water": false,
+                "avoid_water": true
+            },
+            "minecraft:movement.basic": {},
+            "minecraft:behavior.hurt_by_target": {
+                "priority": 1
+            },
+            "minecraft:behavior.nearest_attackable_target": {
+                "priority": 2,
+                "within_radius": 12,
+                "entity_types": [
+                    {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "player"
+                        },
+                        "max_dist": 12
+                    }
+                ]
+            },
+            "minecraft:behavior.melee_attack": {
+                "priority": 3,
+                "speed_multiplier": 1.8,
+                "track_target": true
+            },
+            "minecraft:behavior.random_stroll": {
+                "priority": 6,
+                "speed_multiplier": 1.0
+            },
+            "minecraft:loot": {
+                "table": "loot_tables/entities/desert_scorpion.json"
+            },
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            }
+        }
+    }
+}
