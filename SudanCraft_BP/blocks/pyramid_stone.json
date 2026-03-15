@@ -1,0 +1,29 @@
+{
+    "format_version": "1.20.0",
+    "minecraft:block": {
+        "description": {
+            "identifier": "sudancraft:pyramid_stone",
+            "menu_category": {
+                "category": "construction",
+                "group": "itemGroup.name.construction"
+            }
+        },
+        "components": {
+            "minecraft:geometry": "minecraft:geometry.full_block",
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "pyramid_stone",
+                    "render_method": "opaque"
+                }
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds": 8.0
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 600
+            },
+            "minecraft:friction": 0.6,
+            "minecraft:map_color": "#F4A460"
+        }
+    }
+}
