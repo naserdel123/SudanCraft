@@ -1,0 +1,52 @@
+{
+    "format_version": "1.20.0",
+    "minecraft:item": {
+        "description": {
+            "identifier": "sudancraft:nile_spear",
+            "category": "equipment"
+        },
+        "components": {
+            "minecraft:max_stack_size": 1,
+            "minecraft:hand_equipped": true,
+            "minecraft:damage": 9,
+            "minecraft:enchantable": {
+                "value": 15,
+                "slot": "sword"
+            },
+            "minecraft:durability": {
+                "max_durability": 500
+            },
+            "minecraft:icon": {
+                "texture": "nile_spear"
+            },
+            "minecraft:creative_category": {
+                "parent": "itemGroup.name.sword"
+            },
+            "minecraft:hover_text_color": "aqua",
+            "minecraft:display_name": {
+                "value": "§bرمح النيل§r"
+            },
+            "minecraft:on_use": {
+                "on_use": {
+                    "event": "sudancraft:throw",
+                    "target": "self"
+                }
+            }
+        },
+        "events": {
+            "sudancraft:throw": {
+                "run_command": {
+                    "command": [
+                        "effect @s strength 5 1 true",
+                        "playsound item.trident.throw @a ~ ~ ~ 1.0",
+                        "particle minecraft:bubble_column_up ~ ~ ~"
+                    ]
+                },
+                "damage": {
+                    "type": "magic",
+                    "amount": 0
+                }
+            }
+        }
+    }
+}
